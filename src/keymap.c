@@ -361,59 +361,52 @@ static const struct _vte_keymap_entry _vte_keymap_GDK_KP_9[] = {
 
 /* These are the same keys as above, but without numlock. */
 static const struct _vte_keymap_entry _vte_keymap_GDK_KP_Insert[] = {
-        {cursor_all, keypad_all, 0, _VTE_CAP_CSI "2~", -1},
+        {cursor_all, keypad_app, 0, _VTE_CAP_SS3 "p", -1},
         {cursor_all, keypad_all, 0, X_NULL, 0},
 };
 
 static const struct _vte_keymap_entry _vte_keymap_GDK_KP_End[] = {
-        {cursor_app, keypad_all, 0, _VTE_CAP_SS3 "F", -1},
-        {cursor_default, keypad_all, 0, _VTE_CAP_CSI "F", -1},
+        {cursor_all, keypad_app, 0, _VTE_CAP_SS3 "q", -1},
         {cursor_all, keypad_all, 0, X_NULL, 0},
 };
 
 static const struct _vte_keymap_entry _vte_keymap_GDK_KP_Down[] = {
-        {cursor_app, keypad_all, 0, _VTE_CAP_SS3 "B", -1},
-        {cursor_default, keypad_all, 0, _VTE_CAP_CSI "B", -1},
+        {cursor_all, keypad_app, 0, _VTE_CAP_SS3 "r", -1},
         {cursor_all, keypad_all, 0, X_NULL, 0},
 };
 
 static const struct _vte_keymap_entry _vte_keymap_GDK_KP_Page_Down[] = {
-        {cursor_all, keypad_all, 0, _VTE_CAP_CSI "6~", -1},
+        {cursor_all, keypad_app, 0, _VTE_CAP_SS3 "s", -1},
         {cursor_all, keypad_all, 0, X_NULL, 0},
 };
 
 static const struct _vte_keymap_entry _vte_keymap_GDK_KP_Left[] = {
-        {cursor_app, keypad_all, 0, _VTE_CAP_SS3 "D", -1},
-        {cursor_default, keypad_all, 0, _VTE_CAP_CSI "D", -1},
+        {cursor_all, keypad_app, 0, _VTE_CAP_SS3 "t", -1},
         {cursor_all, keypad_all, 0, X_NULL, 0},
 };
 
 static const struct _vte_keymap_entry _vte_keymap_GDK_KP_Begin[] = {
-        {cursor_app, keypad_all, 0, _VTE_CAP_SS3 "E", -1},
-        {cursor_default, keypad_all, 0, _VTE_CAP_CSI "E", -1},
+        {cursor_all, keypad_app, 0, _VTE_CAP_SS3 "u", -1},
         {cursor_all, keypad_all, 0, X_NULL, 0},
 };
 
 static const struct _vte_keymap_entry _vte_keymap_GDK_KP_Right[] = {
-        {cursor_app, keypad_all, 0, _VTE_CAP_SS3 "C", -1},
-        {cursor_default, keypad_all, 0, _VTE_CAP_CSI "C", -1},
+        {cursor_all, keypad_app, 0, _VTE_CAP_SS3 "v", -1},
         {cursor_all, keypad_all, 0, X_NULL, 0},
 };
 
 static const struct _vte_keymap_entry _vte_keymap_GDK_KP_Home[] = {
-        {cursor_app, keypad_all, 0, _VTE_CAP_SS3 "H", -1},
-        {cursor_default, keypad_all, 0, _VTE_CAP_CSI "H", -1},
+        {cursor_all, keypad_app, 0, _VTE_CAP_SS3 "w", -1},
         {cursor_all, keypad_all, 0, X_NULL, 0},
 };
 
 static const struct _vte_keymap_entry _vte_keymap_GDK_KP_Up[] = {
-        {cursor_app, keypad_all, 0, _VTE_CAP_SS3 "A", -1},
-        {cursor_default, keypad_all, 0, _VTE_CAP_CSI "A", -1},
+        {cursor_all, keypad_app, 0, _VTE_CAP_SS3 "x", -1},
         {cursor_all, keypad_all, 0, X_NULL, 0},
 };
 
 static const struct _vte_keymap_entry _vte_keymap_GDK_KP_Page_Up[] = {
-        {cursor_all, keypad_all, 0, _VTE_CAP_CSI "5~", -1},
+        {cursor_all, keypad_app, 0, _VTE_CAP_SS3 "y", -1},
         {cursor_all, keypad_all, 0, X_NULL, 0},
 };
 
@@ -726,7 +719,7 @@ _vte_keymap_map(guint keyval,
 	g_return_if_fail(normal != NULL);
 	g_return_if_fail(normal_length != NULL);
 
-	_VTE_DEBUG_IF(VTE_DEBUG_KEYBOARD) 
+	_VTE_DEBUG_IF(VTE_DEBUG_KEYBOARD)
 		_vte_keysym_print(keyval, modifiers);
 
 	/* Start from scratch. */
@@ -891,10 +884,10 @@ _vte_keymap_key_get_modifier_encoding_method(guint keyval)
 	case GDK_KEY_F35:
 		method = MODIFIER_ENCODING_LONG;
 		break;
-	case GDK_KEY_KP_Divide:
-	case GDK_KEY_KP_Multiply:
-	case GDK_KEY_KP_Subtract:
-	case GDK_KEY_KP_Add:
+        case GDK_KEY_KP_Divide:
+        case GDK_KEY_KP_Multiply:
+        case GDK_KEY_KP_Subtract:
+        case GDK_KEY_KP_Add:
 		method = MODIFIER_ENCODING_SHORT;
 		break;
 	default:
